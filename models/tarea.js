@@ -1,12 +1,14 @@
-const { v4: uudiv4 } = require('uuid');
+const {
+    v4: uudiv4
+} = require('uuid');
 
 class Tarea {
-    
+
     id = '';
     desc = '';
     completadoEn = null;
 
-    constructor( desc ) {
+    constructor(desc) {
 
         this.id = uudiv4();
         this.desc = desc;
