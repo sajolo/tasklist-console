@@ -82,13 +82,13 @@ class Tareas {
                 'Completada'.green :
                 'Pendiente'.red;
             if (completadas) {
-                // mostrar completadas
+                //Muestra tareas completadas
                 if (completadoEn) {
                     contador += 1;
                     console.log(`${ (contador + '.').green } ${ desc } :: ${ completadoEn.green }`);
                 }
             } else {
-                // mostrar pendientes
+                //Muestra tareas pendientes
                 if (!completadoEn) {
                     contador += 1;
                     console.log(`${ (contador + '.').green } ${ desc } :: ${ estado }`);

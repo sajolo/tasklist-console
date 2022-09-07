@@ -22,17 +22,17 @@ const main = async () => {
     const tareasDB = leerDB();
 
     if (tareasDB) {
-        // cargar tareas
+        //Esta función carga las tareas
         tareas.cargarTareasFromArray(tareasDB);
     }
 
     do {
-        // Imprimir el menú
+        //Esta función imprime el menú
         opt = await inquirerMenu();
 
         switch (opt) {
             case "1":
-                // crear opcion
+                //Para crear una tarea
                 const desc = await leerInput("Descripción:");
                 tareas.crearTarea(desc);
                 break;
@@ -41,20 +41,20 @@ const main = async () => {
                 tareas.listadoCompleto();
                 break;
 
-            case "3": // listar completadas
+            case "3": //Lista las tareas completadas
                 tareas.listarPendientesCompletadas(true);
                 break;
 
-            case "4": // listar pendientes
+            case "4": //Lista las tareas pendientes
                 tareas.listarPendientesCompletadas(false);
                 break;
 
-            case "5": // completado | pendiente
+            case "5": //Muestra el listado de tareas con la checklist de las marcadas como completadas y las que no
                 const ids = await mostrarListadoChecklist(tareas.listadoArr);
                 tareas.toggleCompletadas(ids);
                 break;
 
-            case "6": // Borrar
+            case "6": //Para eliminar una tarea
                 const id = await listadoTareasBorrar(tareas.listadoArr);
                 if (id !== "0") {
                     const ok = await confirmar("¿Está seguro?");
@@ -71,7 +71,6 @@ const main = async () => {
         await pausa();
     } while (opt !== "0");
 
-    // pausa();
 };
 
 main();
